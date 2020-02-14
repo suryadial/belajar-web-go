@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning html/template Actions</title>
+</head>
+<body>
+    <table border="0">
+        <tr>
+            <td> {{"Name"}} </td>
+            <td>: {{.Name}} </td>
+        </tr>
+        <tr>
+            <td> Gender </td>
+            {{$gender := .Gender}}
+            <td>: {{$gender}} </td>
+        </tr>
+        <tr>
+            <td> Hobbies </td>
+            <td>: 
+                {{range $index, $elem := .Hobbies}}
+                    {{$elem}},
+                {{end}}
+            </td>
+        </tr>
+        <tr>
+            <td> Affiliation </td>
+            <td>: {{.Info.Affiliation}} {{.Info.GetAffiliationDetailInfo}} </td>
+        </tr>
+        <tr>
+            {{with .Info}}
+            <td> Address </td>
+            <td>: {{.Address}} </td>
+            {{end}}
+        </tr>
+        <tr>
+            {{if eq .Name "Suryadi Misla"}}
+            <td colspan="2" style="font-weight: bold;">
+                Son of Mislabi
+            </td>
+            {{end}}
+        </tr>
+    </table>
+</body>
+</html>
