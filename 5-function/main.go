@@ -6,12 +6,14 @@ import (
 	"net/http"
 )
 
+// SuperHero struct untuk superhero
 type SuperHero struct {
 	Name    string
 	Alias   string
 	Friends []string
 }
 
+// SayHello fungsi yang dimiliki oleh struct SuperHero
 func (s SuperHero) SayHello(from string, message string) string {
 	return fmt.Sprintf("%s said: \"%s\"", from, message)
 }
